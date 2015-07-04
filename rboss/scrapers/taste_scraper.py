@@ -1,14 +1,11 @@
 """
 Parses recipes from taste.com to produce lists of ingredients and steps
 """
+from base import RecipeScraper
 from bs4 import BeautifulSoup
 import requests
 
-class TasteRecipeScraper:
-
-	def __init__(self, url):
-		response = requests.get(url)
-		self.soup = BeautifulSoup(response.text)
+class TasteRecipeScraper(RecipeScraper):
 
 	def get_ingredients(self):
 		# first locate all the ingredients.
